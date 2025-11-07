@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated title to reflect only the Netflix Dashboard -->
+    <title>BI Portfolio: Netflix Dashboard</title>
+    <!-- Load Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#e50914', /* Netflix Red */
+                        'secondary': '#b9090b', /* Darker Netflix Red */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for full-screen containers and flexible layout */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        .dashboard-wrapper {
+            /* Ensures the content container scrolls if dashboards exceed viewport height */
+            min-height: 100vh;
+            background-color: #f3f4f6; /* bg-gray-100 */
+        }
+        .dashboard-item {
+            /* Sets a maximum width for dashboards on desktop, but takes full width on mobile */
+            max-width: 1400px; 
+            width: 100%;
+        }
+        .dashboard-iframe {
+            /* Fixed aspect ratio (e.g., 16:9) is common for Power BI embeds */
+            aspect-ratio: 16 / 9; 
+            width: 100%;
+            border: none;
+            min-height: 500px; /* Ensure a minimum height for usability */
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper flex flex-col items-center p-4 sm:p-8">
+        
+        <!-- Header Section -->
+        <header class="w-full max-w-7xl text-center py-4 mb-8 bg-white shadow-lg rounded-lg">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-primary">
+                🎬 Netflix Content Analysis Dashboard
+            </h1>
+            <p class="text-gray-600 mt-2 text-lg">
+                Interactive Power BI Visualization
+            </p>
+        </header>
+
+        <!-- NETFLIX DASHBOARD SECTION -->
+        <div class="dashboard-item bg-white p-4 shadow-xl rounded-xl mb-12">
+            <h2 class="text-2xl font-bold text-secondary mb-4 border-b pb-2">
+                Content Overview and Trends
+            </h2>
+            <div class="dashboard-container">
+                <iframe 
+                    title="NETFLIX DASHBOARD"
+                    class="dashboard-iframe"
+                    src="https://app.powerbi.com/reportEmbed?reportId=38d63f94-45f2-4dce-8e9a-9dc7e2359168&autoAuth=true&ctid=b6041fd2-6388-471d-9155-da2d237998d0" 
+                    allowFullScreen="true">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
